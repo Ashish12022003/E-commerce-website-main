@@ -1,0 +1,121 @@
+<!-- body bala logic yha pr hoga -->
+<% layout('layouts/boilerplate')%>  <!--yha layouts k boiler plate ko use kiya h-->
+<%- include('../partials/navbar') %>  <!--navbar ko add krne k liye-->
+<style>
+   body{
+      background-color: rgb(46, 116, 176);
+      background-image: url("https://images.unsplash.com/photo-1713646195420-b92887a4b570?q=80&w=1002&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+      background-size: cover;
+            background-position: center center;
+    }
+    .col-6{
+            position: relative;
+            max-width: 600px;
+            padding: 16px;
+            margin-top: 25px;
+            background: rgba(168, 195, 202, 0.325);
+            border-radius: 15px;
+          
+    }
+    #darea{
+      box-sizing: content-box;
+      margin-top: 8px;
+    }
+    .mb-3{
+      box-sizing: content-box;
+      padding:5px;
+      color: rgb(250, 245, 207);
+    }
+    .btn-2{
+      background-color: rgb(236, 161, 12);
+      font-weight: bold;
+      width: 100%;
+      height: 40px; 
+      border-radius:25px ;
+    }
+    .btn-2:hover{
+      background-color: rgb(46, 185, 46);
+    }
+</style>
+<div class="row">
+    <div class="col-6 mx-auto">
+
+        <form class="needs-validation" action="/products" method="POST" novalidate>
+            <div class="mb-3">
+                <label for="naam">Name:</label>
+                <input type="text" class="form-control" name="name" id="naam" placeholder="name of product" required>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  <div class="invalid-feedback">
+                    Please enter the name field.
+                  </div>
+
+            </div>
+
+            <div class="mb-3">
+                <label for="img">Image:</label>
+                <input type="text" class="form-control" name="img" id="img" placeholder="url of img" required>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  <div class="invalid-feedback">
+                    Please enter the URL field.
+                  </div>
+            </div>
+            <div class="mb-3">
+                <label for="paisa">Price:</label>
+                <input type="text" class="form-control" name="price" id="paisa" placeholder="price of the product" required>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  <div class="invalid-feedback">
+                    Please enter the Price field.
+                  </div>
+            </div>
+            <div class="mb-3">
+                <label for="desc">Desc:</label>
+                <textarea name="desc" id="" rows="5" placeholder="Description of product" required></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  <div class="invalid-feedback">
+                    Please enter the Description field.
+                  </div>
+            </div>
+            <button class="btn-2 btn-sm btn-success" type="submit">Add Product</button>
+
+
+        </form>
+
+
+    </div>
+   
+   
+</div>
+
+
+
+<script>
+    // this is a iife(immidiately invoked functional expression) function 
+    (() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+</script>
+</body>
+</html>
